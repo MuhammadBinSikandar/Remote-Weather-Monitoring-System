@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Station</title>
+    <link rel="stylesheet" href="{% static 'WeatherApp/css/style.css' %}" />
+  </head>
+
+  <body>
+    <header>
+      <div class="navbar">
+        <div id="image">
+          <img
+            src="{% static 'WeatherApp/images/NUTECH_logo.png' %}"
+            alt="Logo"
+          />
+        </div>
+        <div class="navbar-title">
+          WEATHER APPLICATION
+          <small>DESIGNED BY NIC, NUTECH</small>
+        </div>
+        <div class="Logos">
+          <img src="{% static 'WeatherApp/images/EuropeanUnion.png' %}" alt="">
+          <img src="{% static 'WeatherApp/images/Active.png' %}" alt="">
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="weather_container_wrapper">
+        <div class="Comparison_Container">
+            <div class="Station_Container">
+                <div class="header" id="header_nutech">
+                    <div class="header-left">
+                        <h2>NUTECH</h2>
+                        <div class="location_details">
+                            <span>33°37'6"N, 73°3'21"E</span>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <img src="{% static 'WeatherApp/images/thunderstorms.png' %}" alt="">
+                        <div class="temperature-range">
+                            <span>
+                              {{ predictions_day_1_NUTECH.Low_Temperature }}° / {{ predictions_day_1_NUTECH.High_Temperature }}°
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="boxes_container">
+                    <div class="box">
+                        <span class="box-line"></span>
+                        <span class="box-icon">🌡</span>
+                        <span class="box-value">Temperature</span>
+                        <span class="box-data">{{ last_data_NUTECH.Temperature }} °</span>
+                    </div>
+                    <div class="box">
+                        <span class="box-line"></span>
+                        <span class="box-icon">💧</span>
+                        <span class="box-value">Humidity</span>
+                        <span class="box-data">{{ last_data_NUTECH.Humidity }} %</span>
+                    </div>
+                    <div class="box">
+                        <span class="box-line"></span>
+                        <span class="box-icon">⏲</span>
+                        <span class="box-value">Pressure</span>
+                        <span class="box-data">{{ last_data_NUTECH.Pressure }} hPa</span>
+                    </div>
+                    <div class="box">
+                        <span class="box-line"></span>
+                        <span class="box-icon">🌧</span>
+                        <span class="box-value">Rainfall</span>
+                        <span class="box-data">{{ last_data_NUTECH.Rain }} mm</span>
+                    </div>
+                    <div class="box">
+                        <span class="box-line"></span>
+                        <span class="box-icon">💨</span>
+                        <span class="box-value">Wind Speed</span>
+                        <span class="box-data">{{ last_data_NUTECH.Wind_Speed }} km/h</span>
+                    </div>
+                    <div class="box">
+                        <span class="box-line"></span>
+                        <span class="box-icon">🧭</span>
+                        <span class="box-value">Wind Direction</span>
+                        <span class="box-data">{{ last_data_NUTECH.Wind_Direction }}</span>
+                    </div>
+                    <div class="box">
+                        <span class="box-line"></span>
+                        <span class="box-icon">🌫</span>
+                        <span class="box-value">Evapotranspiration</span>
+                        <span class="box-data">{{ last_data_NUTECH.Evapotranspiration }} mm/h</span>
+                    </div>
+                    <div class="box">
+                        <span class="box-line"></span>
+                        <span class="box-icon">💀</span>
+                        <span class="box-value">CO<sub>2</sub></span>
+                        <span class="box-data">{{ last_data_NUTECH.CO2_level }} ppm</span>
+                    </div>
+                    <div class="box">
+                        <span class="box-line"></span>
+                        <span class="box-icon">🔬</span>
+                        <span class="box-value">Optical Particles</span>
+                        <span class="box-data">{{ last_data_NUTECH.Optical_Particles }} µg/m³</span>
+                    </div>
+                    <div class="box">
+                        <span class="box-line"></span>
+                        <span class="box-icon">☀</span>
+                        <span class="box-value">Solar Radiation</span>
+                        <span class="box-data">{{ last_data_NUTECH.Solar_Radiation }} W/m²</span>
+                    </div>
+                    <div class="box">
+                        <span class="box-line"></span>
+                        <span class="box-icon">🌱</span>
+                        <span class="box-value">Soil Moisture</span>
+                        <span class="box-data">{{ last_data_NUTECH.Soil_Moisture }} %</span>
+                    </div>
+                    <div class="box">
+                        <span class="box-line"></span>
+                        <span class="box-icon">🌼</span>
+                        <span class="box-value">Pollen</span>
+                        <span class="box-data">{{ last_data_NUTECH.Pollen_Count }} g/m</span>
+                    </div>
+                </div>
+            </div>
+            <div class="Station_Container">
+                <div class="header" id="header_margalla">
+                    <div class="header-left">
+                        <h2>Margalla</h2>
+                        <div class="location_details">
+                            <span>33°37'6"N, 73°3'21"E</span>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <img src="{% static 'WeatherApp/images/thunderstorms.png' %}" alt="">
+                        <div class="temperature-range">
+                            <span>
+                              {{ predictions_day_1_Margalla.Low_Temperature }}° / {{ predictions_day_1_Margalla.High_Temperature }}°
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="boxes_container">
+                    <div class="box">
+                        <span class="box-line"></span>
+                        <span class="box-icon">🌡</span>
+                        <span class="box-value">Temperature</span>
+                        <span class="box-data">{{ last_data_Margalla.Temperature }} °</span>
+                    </div>
+                    <div class="box">
+                        <span class="box-line"></span>
+                        <span class="box-icon">💧</span>
+                        <span class="box-value">Humidity</span>
+                        <span class="box-data">{{ last_data_Margalla.Humidity }} %</span>
+                    </div>
+                    <div class="box">
+                        <span class="box-line"></span>
+                        <span class="box-icon">⏲</span>
+                        <span class="box-value">Pressure</span>
+                        <span class="box-data">{{ last_data_Margalla.Pressure }} hPa</span>
+                    </div>
+                    <div class="box">
+                        <span class="box-line"></span>
+                        <span class="box-icon">🌧</span>
+                        <span class="box-value">Rainfall</span>
+                        <span class="box-data">{{ last_data_Margalla.Rain }} mm</span>
+                    </div>
+                    <div class="box">
+                        <span class="box-line"></span>
+                        <span class="box-icon">💨</span>
+                        <span class="box-value">Wind Speed</span>
+                        <span class="box-data">{{ last_data_Margalla.Wind_Speed }} km/h</span>
+                    </div>
+                    <div class="box">
+                        <span class="box-line"></span>
+                        <span class="box-icon">🧭</span>
+                        <span class="box-value">Wind Direction</span>
+                        <span class="box-data">{{ last_data_Margalla.Wind_Direction }}</span>
+                    </div>
+                    <div class="box">
+                        <span class="box-line"></span>
+                        <span class="box-icon">🌫</span>
+                        <span class="box-value">Evapotranspiration</span>
+                        <span class="box-data">{{ last_data_Margalla.Evapotranspiration }} mm/h</span>
+                    </div>
+                    <div class="box">
+                        <span class="box-line"></span>
+                        <span class="box-icon">💀</span>
+                        <span class="box-value">CO<sub>2</sub></span>
+                        <span class="box-data">{{ last_data_Margalla.CO2_level }} ppm</span>
+                    </div>
+                    <div class="box">
+                        <span class="box-line"></span>
+                        <span class="box-icon">🔬</span>
+                        <span class="box-value">Optical Particles</span>
+                        <span class="box-data">{{ last_data_Margalla.Optical_Particles }} µg/m³</span>
+                    </div>
+                    <div class="box">
+                        <span class="box-line"></span>
+                        <span class="box-icon">☀</span>
+                        <span class="box-value">Solar Radiation</span>
+                        <span class="box-data">{{ last_data_Margalla.Solar_Radiation }} W/m²</span>
+                    </div>
+                    <div class="box">
+                        <span class="box-line"></span>
+                        <span class="box-icon">🌱</span>
+                        <span class="box-value">Soil Moisture</span>
+                        <span class="box-data">{{ last_data_Margalla.Soil_Moisture }} %</span>
+                    </div>
+                    <div class="box">
+                        <span class="box-line"></span>
+                        <span class="box-icon">🌼</span>
+                        <span class="box-value">Pollen</span>
+                        <span class="box-data">{{ last_data_Margalla.Pollen_Count }} g/m</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+      </section>
+      <section class="wrapper-forecast">
+        <div class="Forecast">
+          <div class="Forecast-text" id="forecast-text">Forecast NUTECH</div>
+          <div class="forecast-separator"></div>
+        </div>
+      </section>
+
+      <div class="weather-container">
+        <div class="Today-Weather-Card">
+          <p class="Today-header">{{ day_name_1 }}</p>
+          <div class="Today-separator"></div>
+          <div class="Today-Details">
+            <div class="Today-Details-Left">
+              <div class="windSpeed_Direction">
+                <div class="Today-wind-speed">
+                  <img
+                    class="Today-Details-images"
+                    src="{% static 'WeatherApp/images/Windspeed-icon.png' %}"
+                    alt="Windspeed-icon"
+                  />
+                  <p class="Today-text">{{ last_data_NUTECH.Wind_Speed }} km/h</p>
+                </div>
+              </div>
+              <div class="Today-temperature">
+                {{ last_data_NUTECH.Temperature|floatformat:"0" }}°
+              </div>
+              <div class="Rainfall_UV">
+                <div class="Today-Rainfall">
+                  <img
+                    class="Today-Details-images"
+                    src="{% static 'WeatherApp/images/precipitation.png' %}"
+                    alt="Rainfall_Icon"
+                  />
+                  <p class="Today-text">{{ last_data_NUTECH.Rain }}mm</p>
+                </div>
+                <!-- <div class="Today_Solar_Radiation">
+                  <img
+                    class="Today-Details-images"
+                    src="{% static 'WeatherApp/images/SolarRadiation-icon.png' %}"
+                    alt="SolarRadiation_Icon"
+                  />
+                  <p class="Today-text">
+                    {{ last_data_NUTECH.Solar_Radiation|floatformat:"2"  }}W/m<sup>2</sup>
+                  </p>
+                </div> -->
+              </div>
+            </div>
+            <div class="Today-Details-Right">
+              <div class="Today-pollen">
+                <img
+                  class="Today-Details-images"
+                  src="{% static 'WeatherApp/images/Pollen-icon.png' %}"
+                  alt="Pollen_Icon"
+                />
+                <p class="Today-text">{{ last_data_NUTECH.Pollen_Count }} g/m</p>
+              </div>
+              <div class="Today-Humidity">
+                <img
+                  class="Today-Details-images"
+                  src="{% static 'WeatherApp/images/Humidity-icon.png' %}"
+                  alt="Humidity_Icon"
+                />
+                <p class="Today-text">{{ last_data_NUTECH.Humidity }}%</p>
+              </div>
+              <div class="Today-pressure">
+                <img
+                  class="Today-Details-images"
+                  src="{% static 'WeatherApp/images/Pressure-icon.png' %}"
+                  alt="Pressure_Icon"
+                />
+                <p class="Today-text">{{ last_data_NUTECH.Pressure }} hpa</p>
+              </div>
+            </div>
+          </div>
+          <div class="Today-separator"></div>
+          <div class="Today-temperature-range">
+            {{ predictions_day_1_NUTECH.Low_Temperature }}° / {{ predictions_day_1_NUTECH.High_Temperature }}°
+          </div>
+        </div>
+        <div class="weather-card">
+          <p class="header_day">{{ day_name_2 }}</p>
+          <div class="weather_card_separator"></div>
+          <div class="wind-speed">{{ predictions_day_2_NUTECH.Wind_Speed}} km/h</div>
+          <div class="temperature">{{ predictions_day_2_NUTECH.Temperature }}°</div>
+          <div class="rain-chance">
+            <img
+              src="{% static 'WeatherApp/images/precipitation.png' %}"
+              alt="Humidity Icon"
+            />
+            {{ predictions_day_2_NUTECH.Precipitation|floatformat:"0" }}%
+            <!-- <div class="Today_Solar_Radiation">
+              <img
+                class="Today-Details-images"
+                src="{% static 'WeatherApp/images/SolarRadiation-icon.png' %}"
+                alt="SolarRadiation_Icon"
+              />
+              <p class="Today-text">
+                {{ predictions_day_2_NUTECH.Solar_Radiation|floatformat:"2"  }}W/m<sup>2</sup>
+              </p>
+            </div> -->
+          </div>
+          <div class="weather_card_separator"></div>
+          <div class="temperature-range">
+            {{ predictions_day_2_NUTECH.Low_Temperature }}° / {{ predictions_day_2_NUTECH.High_Temperature }}°
+          </div>
+        </div>
+        <div class="weather-card">
+          <p class="header_day">{{ day_name_3 }}</p>
+          <div class="weather_card_separator"></div>
+          <div class="wind-speed">{{ predictions_day_3_NUTECH.Wind_Speed}} km/h</div>
+          <div class="temperature">{{ predictions_day_3_NUTECH.Temperature }}°</div>
+          <div class="rain-chance">
+            <img
+              src="{% static 'WeatherApp/images/precipitation.png' %}"
+              alt="Humidity Icon"
+            />
+            {{ predictions_day_3_NUTECH.Precipitation|floatformat:"0" }}%
+            <!-- <div class="Today_Solar_Radiation">
+              <img
+                class="Today-Details-images"
+                src="{% static 'WeatherApp/images/SolarRadiation-icon.png' %}"
+                alt="SolarRadiation_Icon"
+              />
+              <p class="Today-text">
+                {{ predictions_day_3_NUTECH.Solar_Radiation|floatformat:"2" }}W/m<sup>2</sup>
+              </p>
+            </div> -->
+          </div>
+          <div class="weather_card_separator"></div>
+          <div class="temperature-range">
+            {{ predictions_day_3_NUTECH.Low_Temperature }}° / {{ predictions_day_3_NUTECH.High_Temperature }}°
+          </div>
+        </div>
+        <div class="weather-card">
+          <p class="header_day">{{ day_name_4 }}</p>
+          <div class="weather_card_separator"></div>
+          <div class="wind-speed">{{ predictions_day_4_NUTECH.Wind_Speed}} km/h</div>
+          <div class="temperature">{{ predictions_day_4_NUTECH.Temperature }}°</div>
+          <div class="rain-chance">
+            <img
+              src="{% static 'WeatherApp/images/precipitation.png' %}"
+              alt="Humidity Icon"
+            />
+            {{ predictions_day_4_NUTECH.Precipitation|floatformat:"0" }}%
+            <!-- <div class="Today_Solar_Radiation">
+              <img
+                class="Today-Details-images"
+                src="{% static 'WeatherApp/images/SolarRadiation-icon.png' %}"
+                alt="SolarRadiation_Icon"
+              />
+              <p class="Today-text">
+                {{ predictions_day_4_NUTECH.Solar_Radiation|floatformat:"2" }}W/m<sup>2</sup>
+              </p>
+            </div> -->
+          </div>
+          <div class="weather_card_separator"></div>
+          <div class="temperature-range">
+            {{ predictions_day_4_NUTECH.Low_Temperature }}° / {{ predictions_day_4_NUTECH.High_Temperature }}°
+          </div>
+        </div>
+        <div class="weather-card">
+          <p class="header_day">{{ day_name_5 }}</p>
+          <div class="weather_card_separator"></div>
+          <div class="wind-speed">{{ predictions_day_5_NUTECH.Wind_Speed}} km/h</div>
+          <div class="temperature">{{ predictions_day_5_NUTECH.Temperature }}°</div>
+          <div class="rain-chance">
+            <img
+              src="{% static 'WeatherApp/images/precipitation.png' %}"
+              alt="Humidity Icon"
+            />
+            {{ predictions_day_5_NUTECH.Precipitation|floatformat:"0" }}%
+            <!-- <div class="Today_Solar_Radiation">
+              <img
+                class="Today-Details-images"
+                src="{% static 'WeatherApp/images/SolarRadiation-icon.png' %}"
+                alt="SolarRadiation_Icon"
+              />
+              <p class="Today-text">
+                {{ predictions_day_5_NUTECH.Solar_Radiation|floatformat:"2" }}W/m<sup>2</sup>
+              </p>
+            </div> -->
+          </div>
+          <div class="weather_card_separator"></div>
+          <div class="temperature-range">
+            {{ predictions_day_5_NUTECH.Low_Temperature }}° / {{ predictions_day_5_NUTECH.High_Temperature }}°
+          </div>
+        </div>
+        <div class="weather-card">
+          <p class="header_day">{{ day_name_6 }}</p>
+          <div class="weather_card_separator"></div>
+          <div class="wind-speed">{{ predictions_day_6_NUTECH.Wind_Speed}} km/h</div>
+          <div class="temperature">{{ predictions_day_6_NUTECH.Temperature }}°</div>
+          <div class="rain-chance">
+            <img
+              src="{% static 'WeatherApp/images/precipitation.png' %}"
+              alt="Humidity Icon"
+            />
+            {{ predictions_day_6_NUTECH.Precipitation|floatformat:"0" }}%
+            <!-- <div class="Today_Solar_Radiation">
+              <img
+                class="Today-Details-images"
+                src="{% static 'WeatherApp/images/SolarRadiation-icon.png' %}"
+                alt="SolarRadiation_Icon"
+              />
+              <p class="Today-text">
+                {{ predictions_day_6_NUTECH.Solar_Radiation|floatformat:"2" }}W/m<sup>2</sup>
+              </p>
+            </div> -->
+          </div>
+          <div class="weather_card_separator"></div>
+          <div class="temperature-range">
+            {{ predictions_day_6_NUTECH.Low_Temperature }}° / {{ predictions_day_6_NUTECH.High_Temperature }}°
+          </div>
+        </div>
+        <div class="weather-card">
+          <p class="header_day">{{ day_name_7 }}</p>
+          <div class="weather_card_separator"></div>
+          <div class="wind-speed">{{ predictions_day_7_NUTECH.Wind_Speed}} km/h</div>
+          <div class="temperature">{{ predictions_day_7_NUTECH.Temperature }}°</div>
+          <div class="rain-chance">
+            <img
+              src="{% static 'WeatherApp/images/precipitation.png' %}"
+              alt="Humidity Icon"
+            />
+            {{ predictions_day_7_NUTECH.Precipitation}}%
+            <!-- <div class="Today_Solar_Radiation">
+              <img
+                class="Today-Details-images"
+                src="{% static 'WeatherApp/images/SolarRadiation-icon.png' %}"
+                alt="SolarRadiation_Icon"
+              />
+              <p class="Today-text">
+                {{ predictions_day_7_NUTECH.Solar_Radiation|floatformat:"2" }}W/m<sup>2</sup>
+              </p>
+            </div> -->
+          </div>
+          <div class="weather_card_separator"></div>
+          <div class="temperature-range">
+            {{ predictions_day_7_NUTECH.Low_Temperature }}° / {{ predictions_day_7_NUTECH.High_Temperature }}°
+          </div>
+        </div>
+      </div>
+      <br />
+      <section class="wrapper-forecast">
+        <div class="Forecast">
+          <div class="Forecast-text" id="forecast-text">Forecast MARGALLA</div>
+          <div class="forecast-separator"></div>
+        </div>
+      </section>
+      <div class="weather-container">
+        <div class="Today-Weather-Card">
+          <p class="Today-header">{{ day_name_1 }}</p>
+          <div class="Today-separator"></div>
+          <div class="Today-Details">
+            <div class="Today-Details-Left">
+              <div class="windSpeed_Direction">
+                <div class="Today-wind-speed">
+                  <img
+                    class="Today-Details-images"
+                    src="{% static 'WeatherApp/images/Windspeed-icon.png' %}"
+                    alt="Windspeed-icon"
+                  />
+                  <p class="Today-text">{{ last_data_Margalla.Wind_Speed| floatformat:"0" }} km/h</p>
+                </div>
+                <!-- <div class="Today-wind-direction">
+                  <img
+                    class="Today-Details-images"
+                    src="{% static 'WeatherApp/images/Winddirection-icon.png' %}"
+                    alt="Winddirection-icon"
+                  />
+                  <p class="Today-text">{{ last_data_Margalla.Wind_Direction }}</p>
+                </div> -->
+              </div>
+              <div class="Today-temperature">
+                {{ last_data_Margalla.Temperature|floatformat:"0" }}°
+              </div>
+              <div class="Rainfall_UV">
+                <div class="Today-Rainfall">
+                  <img
+                    class="Today-Details-images"
+                    src="{% static 'WeatherApp/images/precipitation.png' %}"
+                    alt="Rainfall_Icon"
+                  />
+                  <p class="Today-text">{{ last_data_Margalla.Rain }}mm</p>
+                </div>
+                <!-- <div class="Today_Solar_Radiation">
+                  <img
+                    class="Today-Details-images"
+                    src="{% static 'WeatherApp/images/SolarRadiation-icon.png' %}"
+                    alt="SolarRadiation_Icon"
+                  />
+                  <p class="Today-text">
+                    {{ last_data_Margalla.Solar_Radiation|floatformat:"2" }}W/m<sup>2</sup>
+                  </p>
+                </div> -->
+              </div>
+            </div>
+            <div class="Today-Details-Right">
+              <div class="Today-pollen">
+                <img
+                  class="Today-Details-images"
+                  src="{% static 'WeatherApp/images/Pollen-icon.png' %}"
+                  alt="Pollen_Icon"
+                />
+                <p class="Today-text">{{ last_data_Margalla.Pollen_Count }} g/m</p>
+              </div>
+              <div class="Today-Humidity">
+                <img
+                  class="Today-Details-images"
+                  src="{% static 'WeatherApp/images/Humidity-icon.png' %}"
+                  alt="Humidity_Icon"
+                />
+                <p class="Today-text">{{ last_data_Margalla.Humidity }}%</p>
+              </div>
+              <div class="Today-pressure">
+                <img
+                  class="Today-Details-images"
+                  src="{% static 'WeatherApp/images/Pressure-icon.png' %}"
+                  alt="Pressure_Icon"
+                />
+                <p class="Today-text">{{ last_data_Margalla.Pressure }} hpa</p>
+              </div>
+            </div>
+          </div>
+          <div class="Today-separator"></div>
+          <div class="Today-temperature-range">
+            {{ predictions_day_1_Margalla.Low_Temperature }}° / {{ predictions_day_1_Margalla.High_Temperature }}°
+          </div>
+        </div>
+        <div class="weather-card">
+          <p class="header_day">{{ day_name_2 }}</p>
+          <div class="weather_card_separator"></div>
+          <div class="wind-speed">{{ predictions_day_2_Margalla.Wind_Speed}} km/h</div>
+          <div class="temperature">{{ predictions_day_2_Margalla.Temperature }}°</div>
+          <div class="rain-chance">
+            <img
+              src="{% static 'WeatherApp/images/precipitation.png' %}"
+              alt="Humidity Icon"
+            />
+            {{ predictions_day_2_NUTECH.Precipitation}}%
+            <!-- <div class="Today_Solar_Radiation">
+              <img
+                class="Today-Details-images"
+                src="{% static 'WeatherApp/images/SolarRadiation-icon.png' %}"
+                alt="SolarRadiation_Icon"
+              />
+              <p class="Today-text">
+                {{ predictions_day_2_Margalla.Solar_Radiation|floatformat:"2" }}W/m<sup>2</sup>
+              </p>
+            </div> -->
+          </div>
+          <div class="weather_card_separator"></div>
+          <div class="temperature-range">
+            {{ predictions_day_2_Margalla.Low_Temperature }}° / {{ predictions_day_2_Margalla.High_Temperature }}°
+          </div>
+        </div>
+        <div class="weather-card">
+          <p class="header_day">{{ day_name_3 }}</p>
+          <div class="weather_card_separator"></div>
+          <div class="wind-speed">{{ predictions_day_3_Margalla.Wind_Speed}} km/h</div>
+          <div class="temperature">{{ predictions_day_3_Margalla.Temperature }}°</div>
+          <div class="rain-chance">
+            <img
+              src="{% static 'WeatherApp/images/precipitation.png' %}"
+              alt="Humidity Icon"
+            />
+            {{ predictions_day_3_NUTECH.Precipitation}}%
+            <!-- <div class="Today_Solar_Radiation">
+              <img
+                class="Today-Details-images"
+                src="{% static 'WeatherApp/images/SolarRadiation-icon.png' %}"
+                alt="SolarRadiation_Icon"
+              />
+              <p class="Today-text">
+                {{ predictions_day_3_Margalla.Solar_Radiation|floatformat:"2" }}W/m<sup>2</sup>
+              </p>
+            </div> -->
+          </div>
+          <div class="weather_card_separator"></div>
+          <div class="temperature-range">
+            {{ predictions_day_3_Margalla.Low_Temperature }}° / {{ predictions_day_3_Margalla.High_Temperature }}°
+          </div>
+        </div>
+        <div class="weather-card">
+          <p class="header_day">{{ day_name_4 }}</p>
+          <div class="weather_card_separator"></div>
+          <div class="wind-speed">{{ predictions_day_4_Margalla.Wind_Speed}} km/h</div>
+          <div class="temperature">{{ predictions_day_4_Margalla.Temperature }}°</div>
+          <div class="rain-chance">
+            <img
+              src="{% static 'WeatherApp/images/precipitation.png' %}"
+              alt="Humidity Icon"
+            />
+            {{ predictions_day_4_NUTECH.Precipitation}}%
+            <!-- <div class="Today_Solar_Radiation">
+              <img
+                class="Today-Details-images"
+                src="{% static 'WeatherApp/images/SolarRadiation-icon.png' %}"
+                alt="SolarRadiation_Icon"
+              />
+              <p class="Today-text">
+                {{ predictions_day_4_Margalla.Solar_Radiation|floatformat:"2" }}W/m<sup>2</sup>
+              </p>
+            </div> -->
+          </div>
+          <div class="weather_card_separator"></div>
+          <div class="temperature-range">
+            {{ predictions_day_4_Margalla.Low_Temperature }}° / {{ predictions_day_4_Margalla.High_Temperature }}°
+          </div>
+        </div>
+        <div class="weather-card">
+          <p class="header_day">{{ day_name_5 }}</p>
+          <div class="weather_card_separator"></div>
+          <div class="wind-speed">{{ predictions_day_5_Margalla.Wind_Speed}} km/h</div>
+          <div class="temperature">{{ predictions_day_5_Margalla.Temperature }}°</div>
+          <div class="rain-chance">
+            <img
+              src="{% static 'WeatherApp/images/precipitation.png' %}"
+              alt="Humidity Icon"
+            />
+            {{ predictions_day_5_NUTECH.Precipitation}}%
+            <!-- <div class="Today_Solar_Radiation">
+              <img
+                class="Today-Details-images"
+                src="{% static 'WeatherApp/images/SolarRadiation-icon.png' %}"
+                alt="SolarRadiation_Icon"
+              />
+              <p class="Today-text">
+                {{ predictions_day_5_Margalla.Solar_Radiation|floatformat:"2" }}W/m<sup>2</sup>
+              </p>
+            </div> -->
+          </div>
+          <div class="weather_card_separator"></div>
+          <div class="temperature-range">
+            {{ predictions_day_5_Margalla.Low_Temperature }}° / {{ predictions_day_5_Margalla.High_Temperature }}°
+          </div>
+        </div>
+        <div class="weather-card">
+          <p class="header_day">{{ day_name_6 }}</p>
+          <div class="weather_card_separator"></div>
+          <div class="wind-speed">{{ predictions_day_6_Margalla.Wind_Speed}} km/h</div>
+          <div class="temperature">{{ predictions_day_6_Margalla.Temperature }}°</div>
+          <div class="rain-chance">
+            <img
+              src="{% static 'WeatherApp/images/precipitation.png' %}"
+              alt="Humidity Icon"
+            />
+            {{ predictions_day_6_NUTECH.Precipitation}}%
+            <!-- <div class="Today_Solar_Radiation">
+              <img
+                class="Today-Details-images"
+                src="{% static 'WeatherApp/images/SolarRadiation-icon.png' %}"
+                alt="SolarRadiation_Icon"
+              />
+              <p class="Today-text">
+                {{ predictions_day_6_Margalla.Solar_Radiation|floatformat:"2" }}W/m<sup>2</sup>
+              </p>
+            </div> -->
+          </div>
+          <div class="weather_card_separator"></div>
+          <div class="temperature-range">
+            {{ predictions_day_6_Margalla.Low_Temperature }}° / {{ predictions_day_6_Margalla.High_Temperature }}°
+          </div>
+        </div>
+        <div class="weather-card">
+          <p class="header_day">{{ day_name_7 }}</p>
+          <div class="weather_card_separator"></div>
+          <div class="wind-speed">{{ predictions_day_7_Margalla.Wind_Speed}} km/h</div>
+          <div class="temperature">{{ predictions_day_7_Margalla.Temperature }}°</div>
+          <div class="rain-chance">
+            <img
+              src="{% static 'WeatherApp/images/precipitation.png' %}"
+              alt="Humidity Icon"
+            />
+            {{ predictions_day_7_NUTECH.Precipitation}}%
+            <!-- <div class="Today_Solar_Radiation">
+              <img
+                class="Today-Details-images"
+                src="{% static 'WeatherApp/images/SolarRadiation-icon.png' %}"
+                alt="SolarRadiation_Icon"
+              />
+              <p class="Today-text">
+                {{ predictions_day_7_Margalla.Solar_Radiation|floatformat:"2" }}W/m<sup>2</sup>
+              </p>
+            </div> -->
+          </div>
+          <div class="weather_card_separator"></div>
+          <div class="temperature-range">
+            {{ predictions_day_7_Margalla.Low_Temperature }}° / {{ predictions_day_7_Margalla.High_Temperature }}°
+          </div>
+        </div>
+      </div>
+      <div class="tabs">
+        <button class="tab active" onclick="showTab('table')">Table</button>
+        <button class="tab" onclick="showTab('graph')">Graph</button>
+        <div class="tabs-separator"></div>
+      </div>
+      <div id="graph" class="tab-content">
+        <div class="graph-header">
+            <p id="Today-Date">{{ formatted_date }}</p>
+            <div class="Duration">
+                <button class="Duration-tabs Dactive" onclick="showTabDuration('day')">Day</button>
+                <button class="Duration-tabs" onclick="showTabDuration('week')">Week</button>
+                <button class="Duration-tabs" onclick="showTabDuration('month')">Month</button>
+            </div>
+        </div>
+        <div id="day" class="duration_tab Dactive">
+            <h1 class="graph-heading">Temperature Graph</h1>
+            <div class="graph-container" style="min-width:fit-content;">
+                <div class="graphs" style="min-width: fit-content;">{{ temperature_graph_html_day|safe }}</div>
+            </div>
+            <h1 class="graph-heading">Humidity Graph</h1>
+            <div class="graph-container">
+                <div class="graphs">{{ humidity_graph_html_day|safe }}</div>
+            </div>
+            <h1 class="graph-heading">Pressure Graph</h1>
+            <div class="graph-container" style="min-width:fit-content;">
+                <div class="graphs" style="min-width: fit-content;">{{ pressure_graph_html_day|safe }}</div>
+            </div>
+        </div>
+        <div id="week" class="duration_tab">
+            <h1 class="graph-heading">Temperature Graph</h1>
+            <div class="graph-container" style="min-width:fit-content;">
+                <div class="graphs" style="min-width: fit-content;">{{ temperature_graph_html_week|safe }}</div>
+            </div>
+            <h1 class="graph-heading">Humidity Graph</h1>
+            <div class="graph-container">
+                <div class="graphs">{{ humidity_graph_html_week|safe }}</div>
+            </div>
+            <h1 class="graph-heading">Pressure Graph</h1>
+            <div class="graph-container" style="min-width:fit-content;">
+                <div class="graphs" style="min-width: fit-content;">{{ pressure_graph_html_week|safe }}</div>
+            </div>
+        </div>
+        <div id="month" class="duration_tab">
+            <h1 class="graph-heading">Temperature Graph</h1>
+            <div class="graph-container" style="min-width:fit-content;">
+                <div class="graphs" style="min-width: fit-content;">{{ temperature_graph_html_month|safe }}</div>
+            </div>
+            <h1 class="graph-heading">Humidity Graph</h1>
+            <div class="graph-container">
+                <div class="graphs">{{ humidity_graph_html_month|safe }}</div>
+            </div>
+            <h1 class="graph-heading">Pressure Graph</h1>
+            <div class="graph-container" style="min-width:fit-content;">
+                <div class="graphs" style="min-width: fit-content;">{{ pressure_graph_html_month|safe }}</div>
+            </div>
+        </div>
+      </div>
+      <div id="table" class="tab-content active">
+        <div class="table-header">
+          <p id="Today-Date">{{ formatted_date }}</p>
+          <button
+            class="download-btn"
+            id="Download_Data"
+            onclick="downloadCSV()"
+          >
+            Download
+          </button>
+        </div>
+        <table id="weather-table">
+          <thead>
+            <tr>
+              <th rowspan="2" style="white-space: nowrap">Time</th>
+              <th colspan="2">Temp (°C)</th>
+              <th colspan="2">Rain (mm)</th>
+              <th colspan="2">Humidity (%)</th>
+              <th colspan="2">Wind Speed (km/h)</th>
+              <th colspan="2">Wind Direction</th>
+              <th colspan="2">Pressure (hpa)</th>
+              <th colspan="2" style="width: 100px">
+                Evapotranspiration (mm/h)
+              </th>
+              <th colspan="2">CO2 (ppm)</th>
+              <th colspan="2">Optical Particles (µg/m³)</th>
+              <th colspan="2">Solar (w/m²)</th>
+              <th colspan="2">Soil Moisture (kPa)</th>
+              <th colspan="2">Pollen (g/m)</th>
+            </tr>
+            <tr class="subheader">
+              <th>N</th>
+              <th>M</th>
+              <th>N</th>
+              <th>M</th>
+              <th>N</th>
+              <th>M</th>
+              <th>N</th>
+              <th>M</th>
+              <th>N</th>
+              <th>M</th>
+              <th>N</th>
+              <th>M</th>
+              <th>N</th>
+              <th>M</th>
+              <th>N</th>
+              <th>M</th>
+              <th>N</th>
+              <th>M</th>
+              <th>N</th>
+              <th>M</th>
+              <th>N</th>
+              <th>M</th>
+              <th>N</th>
+              <th>M</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for nutech_row, margalla_row in combined_data %}
+            <tr>
+                <td>{{ nutech_row.Time }}</td>
+                <td>{{ nutech_row.Temperature }}</td>
+                <td>{{ margalla_row.Temperature }}</td>
+                <td>{{ nutech_row.Rain }}</td>
+                <td>{{ margalla_row.Rain }}</td>
+                <td>{{ nutech_row.Humidity }}</td>
+                <td>{{ margalla_row.Humidity }}</td>
+                <td>{{ nutech_row.Wind_Speed }}</td>
+                <td>{{ margalla_row.Wind_Speed }}</td>
+                <td>{{ nutech_row.Wind_Direction }}</td>
+                <td>{{ margalla_row.Wind_Direction }}</td>
+                <td>{{ nutech_row.Pressure }}</td>
+                <td>{{ margalla_row.Pressure }}</td>
+                <td>{{ nutech_row.Evapotranspiration }}</td>
+                <td>{{ margalla_row.Evapotranspiration }}</td>
+                <td>{{ nutech_row.CO2_level }}</td>
+                <td>{{ margalla_row.CO2_level }}</td>
+                <td>{{ nutech_row.Optical_Particles }}</td>
+                <td>{{ margalla_row.Optical_Particles }}</td>
+                <td>{{ nutech_row.Solar_Radiation }}</td>
+                <td>{{ margalla_row.Solar_Radiation }}</td>
+                <td>{{ nutech_row.Soil_Moisture }}</td>
+                <td>{{ margalla_row.Soil_Moisture }}</td>
+                <td>{{ nutech_row.Pollen_Count }}</td>
+                <td>{{ margalla_row.Pollen_Count }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <script src="{% static 'WeatherApp/JS/script.js' %}"></script>
+      <script>
+        function downloadCSV() {
+            var table = document.getElementById("weather-table");
+            var rows = table.querySelectorAll("tr");
+            var csv = [];
+            var headerRow = [];
+            var subheaderRow = [];
+            var isSubheader = false;
+            for (var i = 0; i < rows.length; i++) {
+                var row = rows[i];
+                var cols = row.querySelectorAll("td, th");
+                if (i === 0) { 
+                    for (var j = 0; j < cols.length; j++) {
+                        var col = cols[j];
+                        if (col.hasAttribute('rowspan')) {
+                            headerRow.push(col.innerText.trim());
+                        } else if (col.hasAttribute('colspan')) {
+                            var colspan = parseInt(col.getAttribute('colspan'));
+                            for (var k = 0; k < colspan; k++) {
+                                headerRow.push(col.innerText.trim());
+                            }
+                        } else {
+                            headerRow.push(col.innerText.trim());
+                        }
+                    }
+                    continue;
+                }
+                if (i === 1) { 
+                    for (var j = 0; j < cols.length; j++) {
+                        var col = cols[j];
+                        var colspan = parseInt(col.getAttribute('colspan')) || 1;
+                        for (var k = 0; k < colspan; k++) {
+                            subheaderRow.push(col.innerText.trim());
+                        }
+                    }
+                    isSubheader = true;
+                    continue;
+                }
+                var dataRow = [];
+                for (var j = 0; j < cols.length; j++) {
+                    dataRow.push(cols[j].innerText.trim());
+                }
+                csv.push(dataRow.join(","));
+            }
+            var finalHeaderRow = [];
+            for (var i = 0; i < headerRow.length; i++) {
+                if (i < subheaderRow.length) {
+                    finalHeaderRow.push(headerRow[i] + ' ' + subheaderRow[i]);
+                } else {
+                    finalHeaderRow.push(headerRow[i]);
+                }
+            }
+            csv.unshift(finalHeaderRow.join(","));
+            downloadCSVFile(csv.join("\n"), 'weather_data.csv');
+        }
+        function downloadCSVFile(csv, filename) {
+            var csvFile;
+            var downloadLink;
+            csvFile = new Blob([csv], {type: "text/csv"});
+            downloadLink = document.createElement("a");
+            downloadLink.download = filename;
+            downloadLink.href = window.URL.createObjectURL(csvFile);
+            downloadLink.style.display = "none";
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+        }
+      </script>
+    </main>
+    <footer>
+      <p>DEVELOPED BY NIC, NUTECH</p>
+  </footer>
+  </body>
+</html>

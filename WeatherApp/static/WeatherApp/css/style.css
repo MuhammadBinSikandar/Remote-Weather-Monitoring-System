@@ -1,0 +1,791 @@
+:root {
+    --primary-color: #003d8e;
+    --secondary-color: #8f8c00;
+    --accent-color: #00b4ae;
+    --bg-color-dark: #000000;
+    --bg-color-light: #003366;
+    --text-color: #ffffff;
+    --contrast-color: #004080;
+    --gradient-start: #000000;
+    --gradient-end-nutech: #8f8c00;
+    --gradient-end-margalla: #009f53;
+}
+
+body {
+    background: repeating-linear-gradient(45deg, #000000, #000000 1px, #003366 5px, #003366 10px);
+    /* background: linear-gradient(180deg, #003d8e, #000024); */
+    color: white;
+    font-family: "Helvetica Neue", sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* .navbar {
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    background-color: var(--primary-color);
+    padding: 10px 50px;
+} */
+
+.navbar {
+    display: flex;
+    align-items: center;
+    background-color: var(--primary-color);
+    padding: 10px 53px;
+}
+
+.navbar img {
+    height: 60px;
+    margin-right: 10px;
+}
+
+.navbar-title {
+    color: var(--text-color);
+    font-size: 24px;
+    flex: 1;
+}
+
+.navbar-title small {
+    display: block;
+    font-size: 12px;
+}
+.Logos{
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+.Logos img {
+    margin-left: 10px;
+    height: 60px;
+}
+@media (min-width: 1746px) and (max-width: 1920px) {
+    .navbar{
+        padding: 10px 80px;
+    }
+    .navbar img {
+        height: 80px;
+        margin-right: 10px;
+    }
+}
+
+@media (min-width: 1537px) and (max-width: 1745.50px) {
+    .navbar{
+        padding: 10px 80px;
+    }
+}
+/* Responsive styling */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .navbar img {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .navbar-title {
+        font-size: 20px;
+    }
+
+    .navbar-title small {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar img {
+        height: 50px;
+    }
+
+    .navbar-title {
+        font-size: 18px;
+    }
+
+    .navbar-title small {
+        font-size: 8px;
+    }
+}
+
+main {
+    width: 100%;
+}
+.weather_container_wrapper {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 50px; /* Reduced padding */
+}
+
+.Comparison_Container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 10px; /* Reduced padding */
+    gap: 10px; /* Reduced gap */
+}
+
+.Station_Container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 48%; 
+}
+
+.header {
+    width: 100%;
+    height: 120px; /* Reduced height */
+    margin-bottom: 5px;
+}
+
+#header_margalla {
+    background-image: url('../images/margalla.jpg'); /* Add your Margalla image path */
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(0, 0, 0, 0.2); /* Black background with 50% opacity */
+    background-blend-mode: overlay; /* Blend mode to reduce transparency */
+    color: white;
+    /* padding: 10px; */
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#header_nutech {
+    background-image: url('../images/NUTECH.jpg');/* Add your NUTECH image path */
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(0, 0, 0, 0.3); /* Black background with 50% opacity */
+    background-blend-mode: overlay; /* Blend mode to reduce transparency */
+    color: white;
+    /* padding: 10px; */
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-left {
+    display: flex;
+    flex-direction: column;
+    padding-left: 15px;
+}
+
+.header-left h2 {
+    margin: 0;
+    padding: 0;
+    font-size: 32px; /* Smaller font size */
+}
+
+.location_details {
+    font-size: 12px; /* Smaller font size for location details */
+    margin-top: 2px;
+}
+
+.location_details span {
+    display: block;
+}
+
+.header-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-right: 5px;
+}
+
+.weather-icon {
+    font-size: 36px; /* Smaller icon size */
+}
+
+.temperature-range {
+    font-size: 14px; /* Smaller font size for temperature range */
+}
+
+.temperature-range span {
+    display: block;
+}
+
+.boxes_container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+
+}
+
+.box {
+    display: flex;
+    align-items: center;
+    padding: 5px 0; 
+    width: 100%;
+    margin-bottom: 3px; /* Reduced margin */
+    border-radius: 4px;
+    position: relative;
+    background-color: #00000063;
+    /* background: linear-gradient(135deg, #333, #555); */
+    color: #fff; /* Text color for better contrast */
+    transition: background 0.3s ease-in-out;
+}
+.box:hover {
+    background: linear-gradient(135deg, #444, #666); /* Darken background on hover */
+    transform: scale(1.02); /* Slight zoom effect */
+    transition: background-color 0.3s, transform 0.3s;
+}
+.box-line {
+    width: 3px; /* Reduced line width */
+    height: 100%;
+    background-color: var(--accent-color);
+    margin-right: 5px; /* Reduced margin */
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.box-icon {
+    font-size: 20px; /* Smaller icon size */
+    margin-right: 5px; /* Reduced margin */
+    padding-left: 5px;
+    transition: transform 0.3s ease;
+}
+
+.box:hover .box-icon {
+    transform: rotate(15deg); /* Rotate icon on hover */
+}
+
+.box-value {
+    flex: 1;
+    font-size: 16px; /* Smaller font size */
+}
+
+.box-data {
+    font-size: 16px; /* Smaller font size */
+    font-weight: bold;
+    padding-right: 5px;
+}
+
+@media (min-width: 1746px) and (max-width: 1920px) {
+    .weather_container_wrapper{
+        padding: 10px 75px;
+    }
+}
+
+@media (min-width: 1537px) and (max-width: 1745.50px) {
+    .weather_container_wrapper{
+        padding: 10px 75px;
+    }
+}
+
+.Forecast {
+    padding: 5px 75px 5px 60px;
+}
+
+/* #forecast-text {
+    width: 100px;
+} */
+
+.Forecast-text {
+    height: 35px;
+    width: max-content;
+    font-size: 20px;
+    background-color: #00b4ae;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 10px;
+}
+
+.wrapper-forecast {
+    width: 100vw;
+}
+
+.forecast-separator {
+    height: 1px;
+    background: #ddd;
+    /* margin-top: 10px; */
+    width: 100%;
+}
+
+/* Media queries for responsiveness */
+@media (min-width: 1746px) and (max-width: 1920px) {
+    .Forecast {
+        padding: 5px 100px 5px 85px;
+    }
+
+    .Forecast-text {
+        height: 40px;
+    }
+}
+
+@media (min-width: 1537px) and (max-width: 1745.50px) {
+    .Forecast {
+        padding: 5px 100px 5px 85px;
+    }
+}
+
+
+/* @media (min-width: 1919px) and (max-width: 2300px){
+    .Forecast {
+        padding: 5px 100x;
+    }
+} */
+
+@media (max-width: 1199px) {
+    .Forecast {
+        padding: 5px 80px;
+    }
+}
+
+@media (max-width: 992px) {
+    .Forecast {
+        padding: 8px 16px;
+    }
+
+    .Forecast-text {
+        font-size: 18px;
+        padding: 0 8px;
+    }
+}
+
+@media (max-width: 768px) {
+    .Forecast {
+        padding: 6px 12px;
+    }
+
+    .Forecast-text {
+        font-size: 16px;
+        padding: 0 6px;
+    }
+}
+
+@media (max-width: 576px) {
+    .Forecast {
+        padding: 4px 8px;
+    }
+
+    .Forecast-text {
+        font-size: 14px;
+        padding: 0 4px;
+    }
+}
+
+.weather-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 5px 60px;
+}
+
+.weather-card {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    width: 160px;
+    height: 235px;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+    padding-top: 0;
+}
+
+.header_day {
+    font-size: 20px;
+    text-align: left;
+    margin: 0;
+    padding: 10px 0 5px 5px;
+}
+
+.weather_card_separator {
+    height: 1px;
+    width: 100%;
+    background-color: #ffffff;
+    margin-bottom: 5px;
+}
+
+.wind-speed {
+    font-size: 24px;
+    position: relative;
+}
+
+.temperature {
+    font-size: 5.5rem;
+    margin-left: 20px;
+    padding-right: 5px;
+}
+
+.rain-chance {
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 5px;
+}
+
+.rain-chance img {
+    width: 25;
+    height: 25px;
+    margin-right: 10px;
+}
+
+/* .uv {
+    display: flex;
+    background-color: rgb(10, 10, 40);
+    margin-left: 10px;
+    padding: 4px;
+    border-radius: 6px;
+} */
+
+.temperature-range {
+    font-size: 18px;
+}
+
+.Today-Weather-Card {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    width: 300px;
+    height: 235px;
+    border-radius: 10px;
+}
+
+.Today-header {
+    font-size: 22px;
+    text-align: left;
+    margin: 0;
+    padding: 10px 0 5px 10px;
+}
+
+.Today-separator {
+    height: 1px;
+    width: 100%;
+    background-color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.Today-Details {
+    display: flex;
+}
+
+.Today-Details-Left {
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+}
+
+.Today-Details-Right {
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+    padding-top: 20px;
+}
+
+.Today-Details-Left .Today-Details-images {
+    height: 20px;
+    width: 20px;
+    padding-right: 5px;
+}
+
+.Today-Details-Right .Today-Details-images {
+    height: 30px;
+    /* Increased image size */
+    width: 30px;
+    /* Increased image size */
+    padding-right: 10px;
+    /* Increased padding */
+}
+
+.Today-wind-speed,
+.Today-wind-direction,
+.Today-Rainfall,
+.Today-pollen,
+.Today-Humidity,
+.Today-pressure,
+.Today_Solar_Radiation {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    padding-left: 5px;
+}
+.Today-wind-speed,
+.Today-Rainfall{
+    padding-left: 30px;
+}
+.Today-text {
+    margin: 0;
+    font-size: 14px;
+}
+
+.Today-Details-Right  {
+    font-size: 14px;
+}
+
+.windSpeed_Direction,
+.Rainfall_UV {
+    display: flex;
+}
+
+.Today-temperature {
+    text-align: center;
+    font-size: 5.5rem;
+    padding-left: 25px;
+}
+
+.uv {
+    display: flex;
+    background-color: rgb(10, 10, 40);
+    margin-left: 10px;
+    padding: 4px;
+    border-radius: 6px;
+}
+
+.uv-text,
+.uv-number {
+    font-size: 14px;
+    margin-right: 5px;
+}
+
+.uv-number {
+    color: red;
+}
+
+.Today-temperature-range {
+    font-size: 18px;
+    text-align: center;
+}
+
+
+@media (min-width: 1746px) and (max-width: 1920px) {
+    .weather-container {
+        padding: 5px 85px;
+    }
+
+    .Today-Weather-Card {
+        width: 320px;
+        height: 240px;
+        padding: 5px;
+    }
+
+    .weather-card {
+        width: 200px;
+        height: 240px;
+        padding: 5px;
+    }
+    .Today-text {
+        font-size: 16px;
+    }
+}
+
+@media (min-width: 1537px) and (max-width: 1745.50px) {
+    .weather-container {
+        padding: 5px 85px;
+    }
+
+    .Today-Weather-Card {
+        width: 310px;
+        height: 240px;
+    }
+
+    .weather-card {
+        width: 170px;
+        height: 240px;
+    }
+    .Today-text {
+        font-size: 16px;
+    }
+}
+
+.tabs {
+    display: flex;
+    padding: 10px 58px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.tab {
+    height: 35px;
+    width: 130px;
+    cursor: pointer;
+    color: #fff;
+    border: none;
+    outline: none;
+    background-color: #00b4ae;
+    font-size: 1.5em;
+}
+
+.tab.active {
+    background-color: #0a2143;
+}
+
+.tabs-separator {
+    height: 1px;
+    width: 100%;
+    background-color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+#table {
+    padding: 0 62px;
+}
+
+.table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#Today-Date {
+    font-size: 2rem;
+    margin: 0;
+}
+
+.download-btn {
+    background-color: #00cc66;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 180px;
+    padding: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: #003366;
+    color: #fff;
+}
+
+th,
+td {
+    border: 1px solid #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #004080;
+}
+
+.subheader {
+    font-weight: normal;
+}
+
+#graph {
+    padding: 0 62px;
+}
+
+.graph-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.graph-container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+}
+
+.graphs {
+    width: 100%;
+    height: auto; /* Allow height to adjust based on content */
+}
+
+.graph-heading {
+    margin: 20px 0 10px 0;
+    text-align: center;
+}
+
+
+
+.Duration {
+    display: flex;
+}
+
+.Duration-tabs {
+    height: 35px;
+    width: 130px;
+    cursor: pointer;
+    color: #fff;
+    border: none;
+    outline: none;
+    background-color: #00b4ae;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.Duration-tabs.Dactive {
+    background-color: #0a2143;
+}
+
+.duration_tab {
+    display: none;
+}
+
+.duration_tab.Dactive {
+    display: block;
+}
+
+@media (min-width: 1746px) and (max-width: 1920px) {
+    .tabs {
+        padding: 0 85px;
+    }
+
+    #table {
+        padding: 0 85px;
+    }
+
+    #graph {
+        padding: 0 85px;
+    }
+}
+
+@media (min-width: 1537px) and (max-width: 1745.50px) {
+    .tabs {
+        padding: 0 85px;
+    }
+
+    #table {
+        padding: 0 85px;
+    }
+
+    #graph {
+        padding: 0 85px;
+    }
+}
+footer {
+    background-color: #002266;
+    text-align: center;
+    padding: 10px;
+    margin-top: 15px;
+    width: 100%;
+    bottom: 0;
+}
+footer > p{
+    margin: 0;
+}
+@media (min-width: 1746px) and (max-width: 1920px) {
+    footer > p{
+        font-size: 1.3rem;
+    }
+}
+
+@media (min-width: 1537px) and (max-width: 1745.50px) {
+    footer > p{
+        font-size: 1.3rem;
+    }
+}
